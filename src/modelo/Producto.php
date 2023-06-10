@@ -1,5 +1,8 @@
 <?php
 
+namespace Leandro\app\modelo;
+
+use PDOException;
 use Leandro\app\libs\Database;
 
 class Producto
@@ -22,11 +25,11 @@ class Producto
   private static function arrayAPersona($item)
   {
     $persona             = new Producto();
-    $item->id          = $item['id_productos'];
-    $item->codigo      = $item['codigo'];
-    $item->descripcion = $item['descripcion'];
-    $item->precio      = $item['precio'];
-    $item->fecha       = $item['fecha'];
+    $persona->id          = $item['id_productos'];
+    $persona->codigo      = $item['codigo'];
+    $persona->descripcion = $item['descripcion'];
+    $persona->precio      = $item['precio'];
+    $persona->fecha       = $item['fecha'];
     return $persona;
   }
 
