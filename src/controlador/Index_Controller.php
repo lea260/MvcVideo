@@ -1,8 +1,7 @@
 <?php
 
-
-
 use Leandro\app\libs\Controlador;
+
 
 class Index_Controller extends Controlador
 {
