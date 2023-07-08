@@ -13,10 +13,10 @@
   require 'src/vista/menu.php'; ?>
   <form action="index.php?c=producto&m=crear" method="post">
     <label for="codigo">Codigo</label>
-    <input type="text" name="codigo" id="codigo" value="codigo">
+    <input type="text" name="codigo" id="codigo" value="codigo07">
     <br>
     <label for="descripcion">Descripcion</label>
-    <input type="text" name="codigo" id="descripcion" value="descripcion">
+    <input type="text" name="descripcion" id="descripcion" value="descripcion">
     <br>
     <label for="precio">Precio</label>
     <input type="number" name="precio" id="precio" value="25.50">

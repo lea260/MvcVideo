@@ -5,7 +5,7 @@ INSERT INTO `productos`(
     `fecha`
 )
 VALUES(
-    'cod9',
+    'cod',
     'des7',
     '25',
     '2023-07-27'

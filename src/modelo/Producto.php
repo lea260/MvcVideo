@@ -57,6 +57,35 @@ class Producto
     }
   }
 
+  public function crear()
+  {
+    $pdo = null;
+    $query = null;
+    $pdo = Conexion::getConexion()->getPdo();
+    $id = -1;
+    try {
+      $query      = $pdo->prepare('INSERT INTO productos 
+      (codigo,
+      descripcion,
+      precio,
+      fecha)
+VALUES(:codigo,:descripcion,:precio,:fecha
+)');
+      $query->bindParam(':codigo', $this->codigo);
+      $query->bindParam(':descripcion', $this->descripcion);
+      $query->bindParam(':precio', $this->precio);
+      $query->bindParam(':fecha', $this->fecha);
+      if ($query->execute()) {
+        $id = $pdo->lastInsertId();
+      }
+      return $id;
+    } catch (PDOException $th) {
+      //throw $th;
+    } finally {
+      $pdo = null;
+    }
+  }
+
   /**
    * Get the value of id
    */
