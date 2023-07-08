@@ -1,8 +1,14 @@
 <?php
+
+namespace Leandro\app\libs;
+
+use PDO;
+use PDOException;
+
 class Conexion
 {
   private static $conexion;
-  private static $pdo;
+  private $pdo;
 
   private function __construct()
   {
@@ -24,7 +30,7 @@ class Conexion
     }
   }
 
-  function getConexion()
+  public static function getConexion()
   {
     if (!isset(self::$conexion)) {
       self::$conexion = new Conexion();
