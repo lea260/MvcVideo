@@ -24,14 +24,14 @@ class Producto
 
   private static function arrayAProducto($item)
   {
-    $persona             = new Producto(
+    $producto             = new Producto(
       $item['id'],
       $item['codigo'],
       $item['descripcion'],
       $item['precio'],
       $item['fecha']
     );
-    return $persona;
+    return $producto;
   }
 
   public static function listar()

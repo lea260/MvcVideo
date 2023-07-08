@@ -1,4 +1,3 @@
-
 DROP DATABASE IF EXISTS `f01`;
 CREATE DATABASE IF NOT EXISTS `f01` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `f01`;
@@ -11,7 +10,7 @@ CREATE TABLE `productos` (
   `descripcion` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `precio` decimal(10,2) DEFAULT NULL,
   `fecha` date DEFAULT NULL,
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `productos` (`id`, `codigo`, `descripcion`, `precio`, `fecha`, `url`) VALUES
@@ -25,3 +24,4 @@ ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `codigo` (`codigo`);
 
+ALTER TABLE `productos` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
