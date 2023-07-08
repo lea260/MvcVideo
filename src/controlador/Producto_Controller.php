@@ -23,8 +23,8 @@ class Producto_Controller extends Controlador
     $descripcion = $_POST['descripcion'];
     $precio = $_POST['precio'];
     $fecha = $_POST['fecha'];
-    $producto = new Producto(null, $codigo, $descripcion, $precio, $fecha);
-    $id = $producto->crear();
     $fechaF = $date = DateTime::createFromFormat('Y-m-d', $fecha)->format('Y-m-d');
+    $producto = new Producto(null, $codigo, $descripcion, $precio, $fechaF);
+    $id = $producto->crear();
   }
 }
