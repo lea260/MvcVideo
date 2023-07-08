@@ -11,7 +11,7 @@
   <h1>Nuevo producto</h1>
   <?php
   require 'src/vista/menu.php'; ?>
-  <p><?= $this->data->id; ?></p>
+  <p><?= $this->datos; ?></p>
 </body>
 
 </html>
