@@ -22,9 +22,10 @@ class Articulos_Model implements JsonSerializable
         //define un arreglo en php
         //$items = array();
         $items = [];
+        $pdo       = Conexion::getConexion()->getPdo();
         try {
-            $urlDefecto = constant('URL') . 'public/imagenes/articulos/imagenDefecto.svg';
-            $query      = $this->db->connect()->query('SELECT id_productos, codigo,descripcion,precio,fecha FROM productos');
+            $urlDefecto = "";
+            $query      = $pdo->query('SELECT id_productos, codigo,descripcion,precio,fecha FROM productos');
             while ($row = $query->fetch()) {
                 $item              = new stdClass();
                 $item->id          = $row['id_productos'];
