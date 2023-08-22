@@ -2,10 +2,11 @@
 
 namespace Leandro\app\modelo;
 
+use JsonSerializable;
 use PDOException;
 use Leandro\app\libs\Conexion;
 
-class Producto
+class Producto implements JsonSerializable
 {
   private $id;
   private $codigo;
@@ -78,7 +79,7 @@ VALUES(:codigo,:descripcion,:precio,:fecha
       }
       return $id;
     } catch (PDOException $th) {
-      //throw $th;
+      throw $th;
     } finally {
       $pdo = null;
     }
@@ -122,5 +123,16 @@ VALUES(:codigo,:descripcion,:precio,:fecha
   public function getFecha()
   {
     return $this->fecha;
+  }
+
+  public function JsonSerialize()
+  {
+    return [
+      'id' => $this->id,
+      'codigo' => $this->codigo,
+      'descripcion' => $this->descripcion,
+      'precio' => $this->precio,
+      'fecha' => $this->fecha,
+    ];
   }
 }
