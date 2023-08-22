@@ -20,7 +20,7 @@ class Api_Producto_Controller extends Controlador
       $descripcion = $json->descripcion;
       $precio = $json->precio;
       $fecha = $json->fecha;
-      $fechaF = DateTime::createFromFormat('Y-m-d', $fecha)->format('d-m-Y');
+      $fechaF = DateTime::createFromFormat('Y-m-d', $fecha)->format('Y-m-d');
       $producto = new Producto(null, $codigo, $descripcion, $precio, $fechaF);
       //creo un nuevo producto
       $id = intval($producto->crear());

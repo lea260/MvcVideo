@@ -2,7 +2,7 @@
 
 
 
-use Throwable;
+
 use Leandro\app\modelo\Producto;
 use Leandro\app\libs\Controlador;
 
@@ -25,12 +25,13 @@ class Producto_Controller extends Controlador
       $descripcion = $_POST['descripcion'];
       $precio = $_POST['precio'];
       $fecha = $_POST['fecha'];
-      $fechaF = $date = DateTime::createFromFormat('Y-m-d', $fecha)->format('d-m-Y');
+      $fechaF = DateTime::createFromFormat('Y-m-d', $fecha)->format('Y-m-d');
       $producto = new Producto(null, $codigo, $descripcion, $precio, $fechaF);
       $id = $producto->crear();
       $this->cargarVista("producto/crear", $id);
-    } catch (Throwable $th) {
+    } catch (\Throwable $th) {
       //throw $th;
+      $this->cargarVista("producto/error");
     }
   }
 }
