@@ -28,6 +28,19 @@ class Producto_Controller extends Controlador
       $fechaF = DateTime::createFromFormat('Y-m-d', $fecha)->format('Y-m-d');
       $producto = new Producto(null, $codigo, $descripcion, $precio, $fechaF);
       $id = $producto->crear();
+      //mover el archivo
+      if (isset($_FILES["img"]) && $_FILES["img"]["error"] === 0) {
+        $img = $_FILES["img"];
+        $imgRuta = $img["tmp_name"];
+        $nombre = $img["name"];
+        $arr = explode('.', $nombre);
+        $ext = end($arr);
+        $rutaDestino = "public/imagenes/producto/{$id}.{$ext}";  // Directorio donde se almacenarán las imágenes
+
+        // Mueve el archivo cargado al directorio deseado
+        move_uploaded_file($imgRuta, $rutaDestino);
+        // echo "La imagen se ha subido exitosamente.";
+      }
       $this->cargarVista("producto/crear", $id);
     } catch (\Throwable $th) {
       //throw $th;

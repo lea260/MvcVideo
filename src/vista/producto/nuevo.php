@@ -11,7 +11,7 @@
   <h1>agregar producto</h1>
   <?php
   require 'src/vista/menu.php'; ?>
-  <form action="index.php?c=producto&m=crear" method="post">
+  <form action="index.php?c=producto&m=crear" method="post" enctype="multipart/form-data">
     <label for="codigo">Codigo</label>
     <input type="text" name="codigo" id="codigo" value="codigo07">
     <br>
