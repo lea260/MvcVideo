@@ -23,9 +23,11 @@
     <br>
     <label for="fecha"></label>
     <input type="date" name="fecha" id="fecha" value="2022-02-26">
+    <input type="file" name="img" id="fileInput">
     <input type="submit" value="Enviar">
   </form>
-
+  <script src="public/js/producto/nuevo.js"></script>
+  <img src="" alt="preview image" id="imgP">
 </body>
 
 </html>

@@ -31,7 +31,7 @@
     </tr>
     <?php }; ?>
   </table>
-  <script src="public/js/listar.js"></script>
+
 </body>
 
 </html>
