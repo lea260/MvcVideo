@@ -28,6 +28,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
       // Hacer algo con el contenido HTML obtenido
       console.log(contenidoHTML);
+      // Obtén el elemento div con el ID "contenido"
+      const divContenido = document.getElementById("contenido");
+
+      // Inserta el contenido HTML en el div
+      divContenido.innerHTML = contenidoHTML;
     } catch (error) {
       console.log(error);
       console.error(`Se produjo un error: ${error.message}`);
@@ -35,7 +40,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 
   document.addEventListener("click", (event) => {
-    alert("");
+    //alert("");
     const click = event.target;
     //console.log(click);
     let aux = click.classList;
