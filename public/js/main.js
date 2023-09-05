@@ -52,11 +52,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
     let c = click.dataset.con;
     let m = click.dataset.met;
+    let k = click.dataset.articuloIdCod;
     console.log("controlador");
     console.log(c);
     console.log("metodo");
     console.log(m);
-    console.log("ir");
+    console.log("---------------");
+    console.log(k);
     peticionGet(c, m);
   });
 });
