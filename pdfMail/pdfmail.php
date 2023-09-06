@@ -1,8 +1,8 @@
 <?php
 
-require 'vendor/autoload.php'; // Carga la librería PHPMailer
-require 'vendor/tecnickcom/tcpdf/config/tcpdf_config.php';
-require 'config/secrets.php';
+require '../vendor/autoload.php'; // Carga la librería PHPMailer
+require '../vendor/tecnickcom/tcpdf/config/tcpdf_config.php';
+require '../config/secrets.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -12,7 +12,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 $unique_id = uniqid();
 
 // Define el nombre del archivo PDF con el identificador único
-$pdf_filename = 'mi_pdf_' . $unique_id . '.pdf';
+//echo  $_SERVER['DOCUMENT_ROOT'];
+$pdf_filename = $_SERVER['DOCUMENT_ROOT'] . '/MvcVideo/pdf/mi_pdf_' . $unique_id . '.pdf';
 
 // Crea una instancia de TCPDF
 $pdf = new TCPDF();
@@ -38,16 +39,16 @@ $mail = new PHPMailer();
 
 // Configuración del servidor SMTP
 $mail->isSMTP();
-$mail->Host = 'tu_servidor_smtp';
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 587;
 $mail->SMTPAuth = true;
 $mail->Username = constant('E_MAIL'); // Tu dirección de correo
 $mail->Password = constant('PWD_MAIL'); // Tu contraseña de correo
 $mail->SMTPSecure = 'tls';
-$mail->Port = 587;
 
 // Configuración del correo
-$mail->setFrom('tu_correo@gmail.com', 'Tu Nombre');
-$mail->addAddress('correo@mail.com', 'Nombre del Destinatario'); // Dirección de correo destino
+$mail->setFrom(constant('E_MAIL'), 'programacionphp3bj');
+$mail->addAddress('', 'Nombre del Destinatario'); // Dirección de correo destino
 $mail->Subject = 'Envío de PDF';
 $mail->Body = 'Adjunto encontrarás el PDF que solicitaste.';
 
