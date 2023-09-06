@@ -1,7 +1,12 @@
 <?php
 
-require 'tcpdf/tcpdf.php';
 require 'vendor/autoload.php'; // Carga la librería PHPMailer
+require 'vendor/tecnickcom/tcpdf/config/tcpdf_config.php';
+require 'config/secrets.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+
+
 
 // Genera un identificador único
 $unique_id = uniqid();
@@ -35,8 +40,8 @@ $mail = new PHPMailer();
 $mail->isSMTP();
 $mail->Host = 'tu_servidor_smtp';
 $mail->SMTPAuth = true;
-$mail->Username = 'tu_correo@gmail.com'; // Tu dirección de correo
-$mail->Password = 'tu_contraseña'; // Tu contraseña de correo
+$mail->Username = constant('E_MAIL'); // Tu dirección de correo
+$mail->Password = constant('PWD_MAIL'); // Tu contraseña de correo
 $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
 
