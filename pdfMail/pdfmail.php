@@ -45,10 +45,11 @@ $mail->SMTPAuth = true;
 $mail->Username = constant('E_MAIL'); // Tu dirección de correo
 $mail->Password = constant('PWD_MAIL'); // Tu contraseña de correo
 $mail->SMTPSecure = 'tls';
+$mail->CharSet = "UTF-8";
 
 // Configuración del correo
 $mail->setFrom(constant('E_MAIL'), 'programacionphp3bj');
-$mail->addAddress('', 'Nombre del Destinatario'); // Dirección de correo destino
+$mail->addAddress('lcalvetti1@gmail.com', 'Nombre del Destinatario'); // Dirección de correo destino
 $mail->Subject = 'Envío de PDF';
 $mail->Body = 'Adjunto encontrarás el PDF que solicitaste.';
 
