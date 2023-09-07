@@ -1,7 +1,7 @@
 <?php
 
 require '../vendor/autoload.php'; // Carga la librería PHPMailer
-require '../vendor/tecnickcom/tcpdf/config/tcpdf_config.php';
+//require '../vendor/tecnickcom/tcpdf/config/tcpdf_config.php';
 require '../config/secrets.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -49,7 +49,7 @@ $mail->CharSet = "UTF-8";
 
 // Configuración del correo
 $mail->setFrom(constant('E_MAIL'), 'programacionphp3bj');
-$mail->addAddress('lcalvetti1@gmail.com', 'Nombre del Destinatario'); // Dirección de correo destino
+$mail->addAddress('correo@gmail.com', 'Nombre del Destinatario'); // Dirección de correo destino
 $mail->Subject = 'Envío de PDF';
 $mail->Body = 'Adjunto encontrarás el PDF que solicitaste.';
 
