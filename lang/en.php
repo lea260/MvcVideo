@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'home' => 'home',
+    'home' => 'ingles',
     'articles' => 'articles',
     'articles_list' => 'Articles list',
     'cart' => 'Cart',

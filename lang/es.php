@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'home' => 'inicio brand',
+    'home' => 'espaniol',
     'articles' => 'articulos',
     'articles_list' => 'contacto',
     'cart' => 'carrito',
