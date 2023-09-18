@@ -14,7 +14,6 @@ $unique_id = uniqid();
 // Define el nombre del archivo PDF con el identificador único
 //echo  $_SERVER['DOCUMENT_ROOT'];
 $pdf_filename = $_SERVER['DOCUMENT_ROOT'] . '/MvcVideo/pdf/mi_pdf_' . $unique_id . '.pdf';
-
 // Crea una instancia de TCPDF
 $pdf = new TCPDF();
 
@@ -57,11 +56,11 @@ $mail->Body = 'Adjunto encontrarás el PDF que solicitaste.';
 $mail->addAttachment($pdf_filename);
 
 // Envía el correo
-if ($mail->send()) {
-  echo 'Correo enviado correctamente';
-} else {
-  echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
-}
+// if ($mail->send()) {
+//   echo 'Correo enviado correctamente';
+// } else {
+//   echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
+// }
 
 // Elimina el archivo PDF después de enviarlo por correo
 unlink($pdf_filename);
