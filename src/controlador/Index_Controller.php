@@ -10,6 +10,6 @@ class Index_Controller extends Controlador
     //echo "con index m index ";
     $valor = "un valor";
     //$this->cargarVista("index/index", $valor);
-    $this->cargarVista("index/index", $valor, "html");
+    $this->cargarVista("index/index", $valor, "php");
   }
 }
