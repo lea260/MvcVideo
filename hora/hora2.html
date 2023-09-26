@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convertir Hora Local a UTC</title>
+</head>
+
+<body>
+  <h1>Convertir Hora Local a UTC</h1>
+  <form id="horaForm">
+    <label for="fechaHoraLocal">Fecha y Hora Local:</label>
+    <input type="datetime-local" id="fechaHoraLocal" required>
+    <button type="submit">Convertir a UTC</button>
+  </form>
+  <div id="resultado"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.1.1/luxon.min.js"></script>
+  <script>
+    const horaForm = document.getElementById('horaForm');
+    const resultado = document.getElementById('resultado');
+
+    horaForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const fechaHoraLocalInput = document.getElementById('fechaHoraLocal');
+      const fechaHoraLocal = fechaHoraLocalInput.value;
+
+      // Crea un objeto DateTime con la fecha y hora local
+      const fechaHoraLocalObj = luxon.DateTime.fromISO(fechaHoraLocal, {
+        zone: 'local'
+      });
+
+      // Convierte la fecha y hora local a UTC
+      const fechaHoraUTC = fechaHoraLocalObj.toUTC();
+
+      resultado.innerHTML = `
+                <p>Fecha y Hora Local: ${fechaHoraLocalObj.toISO()}</p>
+                <p>Fecha y Hora UTC: ${fechaHoraUTC.toISO()}</p>
+            `;
+    });
+  </script>
+</body>
+
+</html>
