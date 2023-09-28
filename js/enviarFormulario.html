@@ -1,0 +1,14 @@
+<form id="miFormulario" action="procesar.php" method="post">
+  <input type="text" name="nombre" placeholder="Nombre">
+  <input type="email" name="email" placeholder="Correo electrónico">
+  <button type="submit">Enviar</button>
+</form>
+<button id="miBoton">Enviar Formulario</button>
+<script>
+  document.getElementById("miBoton").addEventListener("click", function () {
+    // Obtener el formulario por su ID
+    var formulario = document.getElementById("miFormulario");
+    // Enviar el formulario
+    formulario.submit();
+  });
+</script>
