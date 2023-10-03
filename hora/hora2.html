@@ -18,6 +18,17 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.1.1/luxon.min.js"></script>
   <script>
+     function formatearAUTC(fecha) {
+        console.log("fechautc");
+        console.log(fecha);
+        const year = fecha.year;
+        const month = String(fecha.month + 1).padStart(2, '0');
+        const day = String(fecha.day).padStart(2, '0');
+        const hours = String(fecha.hour).padStart(2, '0');
+        const minutes = String(fecha.minute).padStart(2, '0');
+        const seconds = String(fecha.second).padStart(2, '0');
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+      }
     const horaForm = document.getElementById('horaForm');
     const resultado = document.getElementById('resultado');
 
@@ -36,8 +47,8 @@
       const fechaHoraUTC = fechaHoraLocalObj.toUTC();
 
       resultado.innerHTML = `
-                <p>Fecha y Hora Local: ${fechaHoraLocalObj.toISO()}</p>
-                <p>Fecha y Hora UTC: ${fechaHoraUTC.toISO()}</p>
+                <p>Fecha y Hora Local: ${formatearAUTC(fechaHoraLocalObj)}</p>
+                <p>Fecha y Hora UTC: ${formatearAUTC(fechaHoraUTC)}</p>
             `;
     });
   </script>
