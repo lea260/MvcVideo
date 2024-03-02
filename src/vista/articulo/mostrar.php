@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <h1>pagina principal vista</h1>
+  <h1>--------------------</h1>
   <?php
 
   use Leandro\app\modelo\Producto;
@@ -25,21 +25,24 @@
       <th>fecha</th>
     </tr>
     <?php foreach ($this->datos as $producto) { ?>
-      <tr>
+      <?php if ($producto->getPrecio() < 5) {; ?>
+        <tr style="background-color: #0f1;">
+        <?php } else {; ?>
+        <tr>
+        <?php }; ?>
+
         <td><?= $producto->getId(); ?></td>
         <td><?= $producto->getCodigo(); ?></td>
         <td><?= $producto->getDescripcion(); ?></td>
         <td><?= $producto->getPrecio(); ?></td>
         <td><?= $producto->getFecha(); ?></td>
-      </tr>
-    <?php }; ?>
+        </tr>
+      <?php }; ?>
   </table>
 
-  <p>precio promedio</p>
-  <?php Producto::getPromedio(); ?>
+  <p> promedio</p>
 
-
-
+  <?= Producto::getPromedio(); ?>
 </body>
 
 </html>

@@ -2,25 +2,60 @@
 
 namespace Leandro\app\modelo;
 
+use PDOException;
+use Leandro\app\libs\Conexion;
+
 class Persona
 {
+
+  private $id;
   private $nombre;
   private $apellido;
   private $edad;
+  private static $promedio;
 
-  public function __construct($nombre = "", $apellido = "", $edad = "")
+
+  public function __construct($id = '', $nombre = "", $edad = "")
   {
+    $this->id = $id;
     $this->nombre = $nombre;
-    $this->apellido = $apellido;
     $this->edad = $edad;
   }
 
-  public function listar()
+  private static function arrayAPersona($item)
   {
-    $lista[] = new Persona("Diego", "Forlan", 45);
-    $lista[] = new Persona("Ana", "Clara", 22);
-    $lista[] = new Persona("Lucas", "Paqueta", 78);
-    return $lista;
+    $persona             = new Persona(
+      $item['id'],
+      $item['nombre'],
+      $item['edad'],
+    );
+    return $persona;
+  }
+
+  public static function mostrar()
+  {
+    $pdo = null;
+    $query = null;
+    $items = [];
+    $pdo = Conexion::getConexion()->getPdo();
+    try {
+      $total = 0;
+
+      $query      = $pdo->query('SELECT id, nombre,apellido,edad FROM personas');
+      while ($row = $query->fetch()) {
+        $item = self::arrayAPersona($row);
+        $total += $item->getEdad();
+        $items[] =   $item;
+        //$item->url = isset($row['url']) ? $row['url'] : $urlDefecto;
+      }
+      self::$promedio = $total / count($items);
+
+      return $items;
+    } catch (PDOException $th) {
+      //throw $th;
+    } finally {
+      $pdo = null;
+    }
   }
 
   /**
@@ -45,5 +80,32 @@ class Persona
   public function getEdad()
   {
     return $this->edad;
+  }
+
+  /**
+   * Get the value of edad
+   */
+
+
+  /**
+   * Set the value of edad
+   *
+   * @return  self
+   */
+  public function setEdad($edad)
+  {
+    $this->edad = $edad;
+
+    return $this;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public static function getPromedio()
+  {
+    return self::$promedio;
   }
 }
